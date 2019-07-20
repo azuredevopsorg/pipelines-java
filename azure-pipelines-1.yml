@@ -1,11 +1,5 @@
 # Maven
-- task: SecretsManagerCreateOrUpdateSecret@1
-  inputs:
-    awsCredentials: 'testaws'
-    regionName: 'us-east-1'
-    secretNameOrId: 'testSecret'
-    description: 'test secret'
-    secretValueSource: 'inline'
+
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
@@ -15,6 +9,13 @@ trigger:
 
 
 steps:
+- task: SecretsManagerCreateOrUpdateSecret@1
+  inputs:
+    awsCredentials: 'testaws'
+    regionName: 'us-east-1'
+    secretNameOrId: 'testSecret'
+    description: 'test secret'
+    secretValueSource: 'inline'
 - task: CloudFormationCreateOrUpdateStack@1
   inputs:
     awsCredentials: 'testaws'
