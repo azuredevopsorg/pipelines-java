@@ -18,3 +18,4 @@ steps:
     description: 'test secret'
     secretValueSource: 'inline'
     secretValue: 'masterpassword'
+
