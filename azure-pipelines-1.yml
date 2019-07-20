@@ -8,15 +8,11 @@ trigger:
 
 
 steps:
-- task: Maven@3
+- task: CloudFormationCreateOrUpdateStack@1
   inputs:
     awsCredentials: 'testaws'
-    regionName: 'us-east-2'
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: false
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+    regionName: 'ap-east-1'
+    stackName: 's3bucket'
+    templateSource: 'url'
+    templateUrl: 'https://cf-templates-1sflxoazv6rb5-us-east-1.s3.amazonaws.com/2019201MlN-S3Bucketcu2tg3hb8dh'
+    
