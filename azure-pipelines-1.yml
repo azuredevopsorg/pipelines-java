@@ -1,4 +1,11 @@
 # Maven
+- task: SecretsManagerCreateOrUpdateSecret@1
+  inputs:
+    awsCredentials: 'testaws'
+    regionName: 'us-east-1'
+    secretNameOrId: 'testSecret'
+    description: 'test secret'
+    secretValueSource: 'inline'
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
@@ -11,7 +18,7 @@ steps:
 - task: CloudFormationCreateOrUpdateStack@1
   inputs:
     awsCredentials: 'testaws'
-    regionName: 'ap-east-1'
+    regionName: 'us-east-1'
     stackName: 's3bucket'
     templateSource: 'url'
     templateUrl: 'https://cf-templates-1sflxoazv6rb5-us-east-1.s3.amazonaws.com/2019201MlN-S3Bucketcu2tg3hb8dh'
