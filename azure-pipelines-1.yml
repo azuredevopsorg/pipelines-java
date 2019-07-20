@@ -9,14 +9,6 @@ trigger:
 
 
 steps:
-- task: SecretsManagerCreateOrUpdateSecret@1
-  inputs:
-    awsCredentials: 'testaws'
-    regionName: 'us-east-1'
-    secretNameOrId: 'testSecret'
-    description: 'test secret'
-    secretValueSource: 'inline'
-    secretValue: 'masterpassword'
 - task: CloudFormationCreateOrUpdateStack@1
   inputs:
     awsCredentials: 'testaws'
