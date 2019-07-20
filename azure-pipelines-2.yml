@@ -10,13 +10,11 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: Maven@3
+- task: SecretsManagerCreateOrUpdateSecret@1
   inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: false
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+    awsCredentials: 'testaws'
+    regionName: 'us-east-1'
+    secretNameOrId: 'testSecret'
+    description: 'test secret'
+    secretValueSource: 'inline'
+    secretValue: 'masterpassword'
