@@ -16,6 +16,7 @@ steps:
     secretNameOrId: 'testSecret'
     description: 'test secret'
     secretValueSource: 'inline'
+    secretValue: 'masterpassword'
 - task: CloudFormationCreateOrUpdateStack@1
   inputs:
     awsCredentials: 'testaws'
